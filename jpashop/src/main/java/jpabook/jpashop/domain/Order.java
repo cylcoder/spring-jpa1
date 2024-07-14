@@ -12,9 +12,7 @@ import java.util.List;
 
 import static jakarta.persistence.CascadeType.ALL;
 import static jakarta.persistence.EnumType.STRING;
-import static jakarta.persistence.FetchType.*;
-import static jpabook.jpashop.domain.DeliveryStatus.COMP;
-import static jpabook.jpashop.domain.OrderStatus.ORDER;
+import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
 @Table(name = "orders")
