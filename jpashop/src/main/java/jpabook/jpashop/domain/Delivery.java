@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import static jakarta.persistence.CascadeType.ALL;
+import static jakarta.persistence.EnumType.STRING;
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
@@ -23,7 +24,7 @@ public class Delivery {
     @Embedded
     private Address address;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(STRING)
     private DeliveryStatus status; // 배송 상태 [READY, COMP]
 
 }
