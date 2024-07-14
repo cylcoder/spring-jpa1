@@ -5,6 +5,8 @@ import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,6 +20,9 @@ public class OrderService {
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;
 
+    /***
+     * 주문
+     */
     @Transactional
     public Long order(Long memberId, Long itemId, int count) {
         // 엔티티 조회
@@ -40,9 +45,13 @@ public class OrderService {
         return order.getId();
     }
 
+    /***
+     * 주문 취소
+     */
     @Transactional
-    public void cancelOrder() {
-
+    public void cancelOrder(Long orderId) {
+        Order order = orderRepository.findOne(orderId);
+        order.cancel();
     }
 
     /*public List<Order> findOrders(OrderSearch orderSearch) {
