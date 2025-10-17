@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import com.example.demo.exception.NotEnoughStockException;
 import com.sun.source.doctree.EscapeTree;
 import jakarta.persistence.Column;
 import jakarta.persistence.DiscriminatorColumn;
@@ -34,5 +35,17 @@ public class Item {
 
   @ManyToMany(mappedBy = "items")
   private List<Category> categories = new ArrayList<>();
+
+  public void addStock(int quantity) {
+    stockQuantity += quantity;
+  }
+
+  public void removeStock(int quantity) {
+    int restStock = stockQuantity - quantity;
+    if (restStock < 0) {
+      throw new NotEnoughStockException("Need more stock.");
+    }
+    stockQuantity = restStock;
+  }
 
 }

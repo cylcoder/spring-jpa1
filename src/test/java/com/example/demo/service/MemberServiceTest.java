@@ -17,10 +17,9 @@ class MemberServiceTest {
 
   @Autowired
   private MemberService memberService;
-  private MemberRepository memberRepository;
 
   @Test
-  void 회원가입() {
+  void shouldJoinMemberSuccessfully() {
     // Given
     Member savedMember = new Member();
     savedMember.setUsername("John");
@@ -34,7 +33,7 @@ class MemberServiceTest {
   }
 
   @Test
-  void 중복_회원_예외() {
+  void shouldThrowExceptionWhenDuplicateMemberJoins() {
     // Given
     Member savedMember1 = new Member();
     savedMember1.setUsername("John");
