@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.domain.Member;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
