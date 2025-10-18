@@ -10,7 +10,8 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class ItemRepository {
 
-  EntityManager em;
+
+  private final EntityManager em;
 
   public void save(Item item) {
     em.persist(item);
