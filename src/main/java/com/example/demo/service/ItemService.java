@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.domain.Book;
 import com.example.demo.domain.Item;
 import com.example.demo.repository.ItemRepository;
 import java.util.List;
@@ -25,6 +26,16 @@ public class ItemService {
 
   public Item findById(Long id) {
     return itemRepository.findById(id);
+  }
+
+  @Transactional
+  public void update(Long id, String name, String author, String isbn, int price, int stockQuantity) {
+    Book book = (Book) itemRepository.findById(id);
+    book.setName(name);
+    book.setPrice(price);
+    book.setStockQuantity(stockQuantity);
+    book.setAuthor(author);
+    book.setIsbn(isbn);
   }
 
 }

@@ -22,7 +22,7 @@ public class MemberService {
   }
 
   private void validateDuplicateMember(Member member) {
-    List<Member> foundMembers = memberRepository.findByName(member.getUsername());
+    List<Member> foundMembers = memberRepository.findByName(member.getName());
     if (!foundMembers.isEmpty()) {
       throw new IllegalStateException("Member already exists.");
     }

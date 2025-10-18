@@ -2,10 +2,8 @@ package com.example.demo.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.junit.jupiter.api.Assertions.*;
 
 import com.example.demo.domain.Member;
-import com.example.demo.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,7 +20,7 @@ class MemberServiceTest {
   void shouldJoinMemberSuccessfully() {
     // Given
     Member savedMember = new Member();
-    savedMember.setUsername("John");
+    savedMember.setName("John");
 
     // When
     memberService.join(savedMember);
@@ -36,9 +34,9 @@ class MemberServiceTest {
   void shouldThrowExceptionWhenDuplicateMemberJoins() {
     // Given
     Member savedMember1 = new Member();
-    savedMember1.setUsername("John");
+    savedMember1.setName("John");
     Member savedMember2 = new Member();
-    savedMember2.setUsername("John");
+    savedMember2.setName("John");
 
     // When
     memberService.join(savedMember1);

@@ -6,6 +6,7 @@ import com.example.demo.domain.Item;
 import com.example.demo.domain.Member;
 import com.example.demo.domain.Order;
 import com.example.demo.domain.OrderItem;
+import com.example.demo.domain.OrderSearch;
 import com.example.demo.repository.ItemRepository;
 import com.example.demo.repository.MemberRepository;
 import com.example.demo.repository.OrderRepository;
@@ -45,8 +46,8 @@ public class OrderService {
     order.cancel();
   }
 
-  public List<Order> findAll() {
-    return orderRepository.findAll();
+  public List<Order> findAll(OrderSearch orderSearch) {
+    return orderRepository.findAll(orderSearch);
   }
 
 }

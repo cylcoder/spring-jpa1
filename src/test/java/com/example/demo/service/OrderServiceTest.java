@@ -80,7 +80,7 @@ class OrderServiceTest {
 
   private Member createMember() {
     Member member = new Member();
-    member.setUsername("foo");
+    member.setName("foo");
     member.setAddress(new Address("bar", "baz", "qux"));
     em.persist(member);
     return member;
